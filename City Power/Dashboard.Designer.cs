@@ -39,14 +39,14 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.txtChargeTotal = new System.Windows.Forms.TextBox();
             this.lblTotalCharge = new System.Windows.Forms.Label();
-            this.radPeakHours = new System.Windows.Forms.RadioButton();
-            this.radOffPeakHours = new System.Windows.Forms.RadioButton();
             this.gbxSelectedChargeTime = new System.Windows.Forms.GroupBox();
+            this.txtBxOffPeak = new System.Windows.Forms.TextBox();
+            this.txtBxPeak = new System.Windows.Forms.TextBox();
             this.lblCompanyName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbxCustType = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.ckBxPeakHours = new System.Windows.Forms.CheckBox();
+            this.ckBxOffPeak = new System.Windows.Forms.CheckBox();
             this.gbxSelectedChargeTime.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbxCustType.SuspendLayout();
@@ -166,36 +166,12 @@
             this.lblTotalCharge.TabIndex = 22;
             this.lblTotalCharge.Text = "Total Charge";
             // 
-            // radPeakHours
-            // 
-            this.radPeakHours.AutoSize = true;
-            this.radPeakHours.Checked = true;
-            this.radPeakHours.Location = new System.Drawing.Point(11, 27);
-            this.radPeakHours.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.radPeakHours.Name = "radPeakHours";
-            this.radPeakHours.Size = new System.Drawing.Size(117, 24);
-            this.radPeakHours.TabIndex = 11;
-            this.radPeakHours.TabStop = true;
-            this.radPeakHours.Text = "&Peak Hours";
-            this.radPeakHours.UseVisualStyleBackColor = true;
-            // 
-            // radOffPeakHours
-            // 
-            this.radOffPeakHours.AutoSize = true;
-            this.radOffPeakHours.Location = new System.Drawing.Point(11, 59);
-            this.radOffPeakHours.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.radOffPeakHours.Name = "radOffPeakHours";
-            this.radOffPeakHours.Size = new System.Drawing.Size(143, 24);
-            this.radOffPeakHours.TabIndex = 12;
-            this.radOffPeakHours.Text = "&Off Peak Hours";
-            this.radOffPeakHours.UseVisualStyleBackColor = true;
-            // 
             // gbxSelectedChargeTime
             // 
-            this.gbxSelectedChargeTime.Controls.Add(this.textBox2);
-            this.gbxSelectedChargeTime.Controls.Add(this.textBox1);
-            this.gbxSelectedChargeTime.Controls.Add(this.radOffPeakHours);
-            this.gbxSelectedChargeTime.Controls.Add(this.radPeakHours);
+            this.gbxSelectedChargeTime.Controls.Add(this.ckBxOffPeak);
+            this.gbxSelectedChargeTime.Controls.Add(this.ckBxPeakHours);
+            this.gbxSelectedChargeTime.Controls.Add(this.txtBxOffPeak);
+            this.gbxSelectedChargeTime.Controls.Add(this.txtBxPeak);
             this.gbxSelectedChargeTime.Location = new System.Drawing.Point(15, 208);
             this.gbxSelectedChargeTime.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gbxSelectedChargeTime.Name = "gbxSelectedChargeTime";
@@ -205,6 +181,22 @@
             this.gbxSelectedChargeTime.TabStop = false;
             this.gbxSelectedChargeTime.Text = "ChargeTime";
             this.gbxSelectedChargeTime.Visible = false;
+            // 
+            // txtBxOffPeak
+            // 
+            this.txtBxOffPeak.Location = new System.Drawing.Point(207, 59);
+            this.txtBxOffPeak.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtBxOffPeak.Name = "txtBxOffPeak";
+            this.txtBxOffPeak.Size = new System.Drawing.Size(152, 26);
+            this.txtBxOffPeak.TabIndex = 14;
+            // 
+            // txtBxPeak
+            // 
+            this.txtBxPeak.Location = new System.Drawing.Point(207, 25);
+            this.txtBxPeak.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtBxPeak.Name = "txtBxPeak";
+            this.txtBxPeak.Size = new System.Drawing.Size(152, 26);
+            this.txtBxPeak.TabIndex = 13;
             // 
             // lblCompanyName
             // 
@@ -240,21 +232,25 @@
             this.gbxCustType.TabStop = false;
             this.gbxCustType.Text = "Customer Type";
             // 
-            // textBox1
+            // ckBxPeakHours
             // 
-            this.textBox1.Location = new System.Drawing.Point(207, 25);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(152, 26);
-            this.textBox1.TabIndex = 13;
+            this.ckBxPeakHours.AutoSize = true;
+            this.ckBxPeakHours.Location = new System.Drawing.Point(11, 27);
+            this.ckBxPeakHours.Name = "ckBxPeakHours";
+            this.ckBxPeakHours.Size = new System.Drawing.Size(118, 24);
+            this.ckBxPeakHours.TabIndex = 15;
+            this.ckBxPeakHours.Text = "Peak Hours";
+            this.ckBxPeakHours.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // ckBxOffPeak
             // 
-            this.textBox2.Location = new System.Drawing.Point(207, 59);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(152, 26);
-            this.textBox2.TabIndex = 14;
+            this.ckBxOffPeak.AutoSize = true;
+            this.ckBxOffPeak.Location = new System.Drawing.Point(11, 61);
+            this.ckBxOffPeak.Name = "ckBxOffPeak";
+            this.ckBxOffPeak.Size = new System.Drawing.Size(145, 24);
+            this.ckBxOffPeak.TabIndex = 16;
+            this.ckBxOffPeak.Text = "Off-Peak Hours";
+            this.ckBxOffPeak.UseVisualStyleBackColor = true;
             // 
             // frmCityPower
             // 
@@ -297,14 +293,14 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.TextBox txtChargeTotal;
         private System.Windows.Forms.Label lblTotalCharge;
-        private System.Windows.Forms.RadioButton radOffPeakHours;
         private System.Windows.Forms.GroupBox gbxSelectedChargeTime;
         private System.Windows.Forms.Label lblCompanyName;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.RadioButton radPeakHours;
         private System.Windows.Forms.GroupBox gbxCustType;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBxOffPeak;
+        private System.Windows.Forms.TextBox txtBxPeak;
+        private System.Windows.Forms.CheckBox ckBxOffPeak;
+        private System.Windows.Forms.CheckBox ckBxPeakHours;
     }
 }
 
