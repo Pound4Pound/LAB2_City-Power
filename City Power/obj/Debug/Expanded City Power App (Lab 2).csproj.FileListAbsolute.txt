@@ -1,0 +1,10 @@
+C:\Users\211367\source\repos\City Power\City Power\bin\Debug\City Power.exe.config
+C:\Users\211367\source\repos\City Power\City Power\bin\Debug\City Power.exe
+C:\Users\211367\source\repos\City Power\City Power\bin\Debug\City Power.pdb
+C:\Users\211367\source\repos\City Power\City Power\obj\Debug\Expanded City Power App (Lab 2).csprojAssemblyReference.cache
+C:\Users\211367\source\repos\City Power\City Power\obj\Debug\City_Power.frmCityPower.resources
+C:\Users\211367\source\repos\City Power\City Power\obj\Debug\City_Power.Properties.Resources.resources
+C:\Users\211367\source\repos\City Power\City Power\obj\Debug\Expanded City Power App (Lab 2).csproj.GenerateResource.cache
+C:\Users\211367\source\repos\City Power\City Power\obj\Debug\Expanded City Power App (Lab 2).csproj.CoreCompileInputs.cache
+C:\Users\211367\source\repos\City Power\City Power\obj\Debug\City Power.exe
+C:\Users\211367\source\repos\City Power\City Power\obj\Debug\City Power.pdb
