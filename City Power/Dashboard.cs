@@ -101,12 +101,12 @@ namespace City_Power
                             break;
                         case "i":
                        // calculater industrial rate
-                            if (radOffPeakHours.Checked) // check what type of charge is made depending on time of day
+                            if (ckBxPeakHours.Checked) // check what type of charge is made depending on time of day
                                  //Calculate Industrial rate of charge during off peak hours.
                                 CalcOffPeak(out flatRate, out hourlyRate, out total);
 
                             //Calculate Industrial rate of charge during peak hours.
-                            if (radPeakHours.Checked)
+                            if (ckBxOffPeak.Checked)
                                 CalcPeak(out flatRate, out hourlyRate, out total);
 
                             break;
@@ -246,5 +246,37 @@ namespace City_Power
             gbxSelectedChargeTime.Visible = false;
         }
 
+        private void ckBxPeakHours_CheckedChanged(object sender, EventArgs e)
+        {
+            bool check = txtPeak.Visible;
+
+            if (check != true)
+                txtPeak.Visible = true;
+            else
+                txtPeak.Visible = false;
+        }
+
+        private void ckBxOffPeak_CheckedChanged(object sender, EventArgs e)
+        {
+            bool check = txtOffPeak.Visible;
+
+                if (check != true)
+                txtOffPeak.Visible = true;
+                else
+                txtOffPeak.Visible = false;
+            
+                
+            
+        }
+
+        private void txtIndustrialSubTotal_TextChanged(object sender, EventArgs e)
+        {
+            int subTotal;
+    
+            subTotal = Convert.ToInt32(txtPeak.Text) + Convert.ToInt32(txtOffPeak);
+
+            txtIndustrialSubTotal.Text = Convert.ToString(subTotal);
+
+        }
     }
 }

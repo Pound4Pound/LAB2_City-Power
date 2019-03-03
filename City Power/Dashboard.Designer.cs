@@ -40,13 +40,19 @@
             this.txtChargeTotal = new System.Windows.Forms.TextBox();
             this.lblTotalCharge = new System.Windows.Forms.Label();
             this.gbxSelectedChargeTime = new System.Windows.Forms.GroupBox();
-            this.txtBxOffPeak = new System.Windows.Forms.TextBox();
-            this.txtBxPeak = new System.Windows.Forms.TextBox();
+            this.lblTotal = new System.Windows.Forms.Label();
+            this.txtIndustrialSubTotal = new System.Windows.Forms.TextBox();
+            this.ckBxOffPeak = new System.Windows.Forms.CheckBox();
+            this.ckBxPeakHours = new System.Windows.Forms.CheckBox();
+            this.txtOffPeak = new System.Windows.Forms.TextBox();
+            this.txtPeak = new System.Windows.Forms.TextBox();
             this.lblCompanyName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbxCustType = new System.Windows.Forms.GroupBox();
-            this.ckBxPeakHours = new System.Windows.Forms.CheckBox();
-            this.ckBxOffPeak = new System.Windows.Forms.CheckBox();
+            this.lblCustName = new System.Windows.Forms.Label();
+            this.lblAcctNum = new System.Windows.Forms.Label();
+            this.txtCustName = new System.Windows.Forms.TextBox();
+            this.txtCustAcctNo = new System.Windows.Forms.TextBox();
             this.gbxSelectedChargeTime.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbxCustType.SuspendLayout();
@@ -69,7 +75,7 @@
             // radCommercial
             // 
             this.radCommercial.AutoSize = true;
-            this.radCommercial.Location = new System.Drawing.Point(146, 29);
+            this.radCommercial.Location = new System.Drawing.Point(191, 26);
             this.radCommercial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radCommercial.Name = "radCommercial";
             this.radCommercial.Size = new System.Drawing.Size(117, 24);
@@ -82,7 +88,7 @@
             // radIndustrial
             // 
             this.radIndustrial.AutoSize = true;
-            this.radIndustrial.Location = new System.Drawing.Point(269, 29);
+            this.radIndustrial.Location = new System.Drawing.Point(363, 26);
             this.radIndustrial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radIndustrial.Name = "radIndustrial";
             this.radIndustrial.Size = new System.Drawing.Size(99, 24);
@@ -95,23 +101,25 @@
             // lblkWh
             // 
             this.lblkWh.AutoSize = true;
-            this.lblkWh.Location = new System.Drawing.Point(19, 175);
+            this.lblkWh.Location = new System.Drawing.Point(396, 225);
             this.lblkWh.Name = "lblkWh";
-            this.lblkWh.Size = new System.Drawing.Size(150, 20);
+            this.lblkWh.Size = new System.Drawing.Size(90, 20);
             this.lblkWh.TabIndex = 21;
-            this.lblkWh.Text = "Kilowatthours (kWh)";
+            this.lblkWh.Text = "Total (kWh)";
             // 
             // txtKilowatthours
             // 
-            this.txtKilowatthours.Location = new System.Drawing.Point(222, 172);
+            this.txtKilowatthours.Location = new System.Drawing.Point(353, 195);
             this.txtKilowatthours.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtKilowatthours.Name = "txtKilowatthours";
-            this.txtKilowatthours.Size = new System.Drawing.Size(152, 26);
+            this.txtKilowatthours.Size = new System.Drawing.Size(133, 26);
             this.txtKilowatthours.TabIndex = 4;
+            this.txtKilowatthours.Text = "0";
+            this.txtKilowatthours.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnCalc
             // 
-            this.btnCalc.Location = new System.Drawing.Point(220, 320);
+            this.btnCalc.Location = new System.Drawing.Point(353, 258);
             this.btnCalc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCalc.Name = "btnCalc";
             this.btnCalc.Size = new System.Drawing.Size(150, 54);
@@ -122,7 +130,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(222, 477);
+            this.btnClear.Location = new System.Drawing.Point(727, 406);
             this.btnClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(150, 54);
@@ -133,7 +141,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(685, 477);
+            this.btnExit.Location = new System.Drawing.Point(727, 495);
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(150, 54);
@@ -148,7 +156,7 @@
             this.txtChargeTotal.Enabled = false;
             this.txtChargeTotal.Font = new System.Drawing.Font("Broadway", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtChargeTotal.ForeColor = System.Drawing.Color.Chartreuse;
-            this.txtChargeTotal.Location = new System.Drawing.Point(62, 382);
+            this.txtChargeTotal.Location = new System.Drawing.Point(238, 447);
             this.txtChargeTotal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtChargeTotal.Multiline = true;
             this.txtChargeTotal.Name = "txtChargeTotal";
@@ -160,7 +168,7 @@
             // lblTotalCharge
             // 
             this.lblTotalCharge.AutoSize = true;
-            this.lblTotalCharge.Location = new System.Drawing.Point(19, 357);
+            this.lblTotalCharge.Location = new System.Drawing.Point(446, 533);
             this.lblTotalCharge.Name = "lblTotalCharge";
             this.lblTotalCharge.Size = new System.Drawing.Size(100, 20);
             this.lblTotalCharge.TabIndex = 22;
@@ -168,35 +176,86 @@
             // 
             // gbxSelectedChargeTime
             // 
+            this.gbxSelectedChargeTime.Controls.Add(this.lblTotal);
+            this.gbxSelectedChargeTime.Controls.Add(this.txtIndustrialSubTotal);
             this.gbxSelectedChargeTime.Controls.Add(this.ckBxOffPeak);
             this.gbxSelectedChargeTime.Controls.Add(this.ckBxPeakHours);
-            this.gbxSelectedChargeTime.Controls.Add(this.txtBxOffPeak);
-            this.gbxSelectedChargeTime.Controls.Add(this.txtBxPeak);
-            this.gbxSelectedChargeTime.Location = new System.Drawing.Point(15, 208);
+            this.gbxSelectedChargeTime.Controls.Add(this.txtOffPeak);
+            this.gbxSelectedChargeTime.Controls.Add(this.txtPeak);
+            this.gbxSelectedChargeTime.Location = new System.Drawing.Point(14, 53);
             this.gbxSelectedChargeTime.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gbxSelectedChargeTime.Name = "gbxSelectedChargeTime";
             this.gbxSelectedChargeTime.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gbxSelectedChargeTime.Size = new System.Drawing.Size(371, 104);
+            this.gbxSelectedChargeTime.Size = new System.Drawing.Size(484, 134);
             this.gbxSelectedChargeTime.TabIndex = 23;
             this.gbxSelectedChargeTime.TabStop = false;
             this.gbxSelectedChargeTime.Text = "ChargeTime";
             this.gbxSelectedChargeTime.Visible = false;
             // 
-            // txtBxOffPeak
+            // lblTotal
             // 
-            this.txtBxOffPeak.Location = new System.Drawing.Point(207, 59);
-            this.txtBxOffPeak.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtBxOffPeak.Name = "txtBxOffPeak";
-            this.txtBxOffPeak.Size = new System.Drawing.Size(152, 26);
-            this.txtBxOffPeak.TabIndex = 14;
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Location = new System.Drawing.Point(349, 104);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(123, 20);
+            this.lblTotal.TabIndex = 18;
+            this.lblTotal.Text = "Sub Total (kWh)";
             // 
-            // txtBxPeak
+            // txtIndustrialSubTotal
             // 
-            this.txtBxPeak.Location = new System.Drawing.Point(207, 25);
-            this.txtBxPeak.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtBxPeak.Name = "txtBxPeak";
-            this.txtBxPeak.Size = new System.Drawing.Size(152, 26);
-            this.txtBxPeak.TabIndex = 13;
+            this.txtIndustrialSubTotal.Location = new System.Drawing.Point(339, 26);
+            this.txtIndustrialSubTotal.Multiline = true;
+            this.txtIndustrialSubTotal.Name = "txtIndustrialSubTotal";
+            this.txtIndustrialSubTotal.ReadOnly = true;
+            this.txtIndustrialSubTotal.Size = new System.Drawing.Size(133, 75);
+            this.txtIndustrialSubTotal.TabIndex = 17;
+            this.txtIndustrialSubTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtIndustrialSubTotal.TextChanged += new System.EventHandler(this.txtIndustrialSubTotal_TextChanged);
+            // 
+            // ckBxOffPeak
+            // 
+            this.ckBxOffPeak.AutoSize = true;
+            this.ckBxOffPeak.Location = new System.Drawing.Point(11, 75);
+            this.ckBxOffPeak.Name = "ckBxOffPeak";
+            this.ckBxOffPeak.Size = new System.Drawing.Size(145, 24);
+            this.ckBxOffPeak.TabIndex = 16;
+            this.ckBxOffPeak.Text = "Off-Peak Hours";
+            this.ckBxOffPeak.UseVisualStyleBackColor = true;
+            this.ckBxOffPeak.CheckedChanged += new System.EventHandler(this.ckBxOffPeak_CheckedChanged);
+            // 
+            // ckBxPeakHours
+            // 
+            this.ckBxPeakHours.AutoSize = true;
+            this.ckBxPeakHours.Location = new System.Drawing.Point(12, 29);
+            this.ckBxPeakHours.Name = "ckBxPeakHours";
+            this.ckBxPeakHours.Size = new System.Drawing.Size(118, 24);
+            this.ckBxPeakHours.TabIndex = 15;
+            this.ckBxPeakHours.Text = "Peak Hours";
+            this.ckBxPeakHours.UseVisualStyleBackColor = true;
+            this.ckBxPeakHours.CheckedChanged += new System.EventHandler(this.ckBxPeakHours_CheckedChanged);
+            // 
+            // txtOffPeak
+            // 
+            this.txtOffPeak.Location = new System.Drawing.Point(164, 75);
+            this.txtOffPeak.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtOffPeak.Name = "txtOffPeak";
+            this.txtOffPeak.Size = new System.Drawing.Size(152, 26);
+            this.txtOffPeak.TabIndex = 14;
+            this.txtOffPeak.Text = "0";
+            this.txtOffPeak.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtOffPeak.Visible = false;
+            // 
+            // txtPeak
+            // 
+            this.txtPeak.Location = new System.Drawing.Point(164, 27);
+            this.txtPeak.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtPeak.Name = "txtPeak";
+            this.txtPeak.Size = new System.Drawing.Size(152, 26);
+            this.txtPeak.TabIndex = 13;
+            this.txtPeak.Text = "0";
+            this.txtPeak.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPeak.Visible = false;
+            this.txtPeak.Enter += new System.EventHandler(this.txtIndustrialSubTotal_TextChanged);
             // 
             // lblCompanyName
             // 
@@ -225,32 +284,48 @@
             this.gbxCustType.Controls.Add(this.radResidential);
             this.gbxCustType.Controls.Add(this.radCommercial);
             this.gbxCustType.Controls.Add(this.radIndustrial);
-            this.gbxCustType.Location = new System.Drawing.Point(12, 91);
+            this.gbxCustType.Controls.Add(this.lblkWh);
+            this.gbxCustType.Controls.Add(this.txtKilowatthours);
+            this.gbxCustType.Controls.Add(this.gbxSelectedChargeTime);
+            this.gbxCustType.Controls.Add(this.btnCalc);
+            this.gbxCustType.Location = new System.Drawing.Point(30, 106);
             this.gbxCustType.Name = "gbxCustType";
-            this.gbxCustType.Size = new System.Drawing.Size(374, 77);
+            this.gbxCustType.Size = new System.Drawing.Size(516, 319);
             this.gbxCustType.TabIndex = 26;
             this.gbxCustType.TabStop = false;
-            this.gbxCustType.Text = "Customer Type";
+            this.gbxCustType.Text = "-";
             // 
-            // ckBxPeakHours
+            // lblCustName
             // 
-            this.ckBxPeakHours.AutoSize = true;
-            this.ckBxPeakHours.Location = new System.Drawing.Point(11, 27);
-            this.ckBxPeakHours.Name = "ckBxPeakHours";
-            this.ckBxPeakHours.Size = new System.Drawing.Size(118, 24);
-            this.ckBxPeakHours.TabIndex = 15;
-            this.ckBxPeakHours.Text = "Peak Hours";
-            this.ckBxPeakHours.UseVisualStyleBackColor = true;
+            this.lblCustName.AutoSize = true;
+            this.lblCustName.Location = new System.Drawing.Point(26, 28);
+            this.lblCustName.Name = "lblCustName";
+            this.lblCustName.Size = new System.Drawing.Size(124, 20);
+            this.lblCustName.TabIndex = 27;
+            this.lblCustName.Text = "Customer Name";
             // 
-            // ckBxOffPeak
+            // lblAcctNum
             // 
-            this.ckBxOffPeak.AutoSize = true;
-            this.ckBxOffPeak.Location = new System.Drawing.Point(11, 61);
-            this.ckBxOffPeak.Name = "ckBxOffPeak";
-            this.ckBxOffPeak.Size = new System.Drawing.Size(145, 24);
-            this.ckBxOffPeak.TabIndex = 16;
-            this.ckBxOffPeak.Text = "Off-Peak Hours";
-            this.ckBxOffPeak.UseVisualStyleBackColor = true;
+            this.lblAcctNum.AutoSize = true;
+            this.lblAcctNum.Location = new System.Drawing.Point(26, 77);
+            this.lblAcctNum.Name = "lblAcctNum";
+            this.lblAcctNum.Size = new System.Drawing.Size(128, 20);
+            this.lblAcctNum.TabIndex = 28;
+            this.lblAcctNum.Text = "Account Number";
+            // 
+            // txtCustName
+            // 
+            this.txtCustName.Location = new System.Drawing.Point(176, 25);
+            this.txtCustName.Name = "txtCustName";
+            this.txtCustName.Size = new System.Drawing.Size(274, 26);
+            this.txtCustName.TabIndex = 29;
+            // 
+            // txtCustAcctNo
+            // 
+            this.txtCustAcctNo.Location = new System.Drawing.Point(176, 74);
+            this.txtCustAcctNo.Name = "txtCustAcctNo";
+            this.txtCustAcctNo.Size = new System.Drawing.Size(274, 26);
+            this.txtCustAcctNo.TabIndex = 30;
             // 
             // frmCityPower
             // 
@@ -258,17 +333,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(900, 562);
+            this.Controls.Add(this.txtCustAcctNo);
+            this.Controls.Add(this.txtCustName);
+            this.Controls.Add(this.lblAcctNum);
+            this.Controls.Add(this.lblCustName);
             this.Controls.Add(this.gbxCustType);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblCompanyName);
-            this.Controls.Add(this.gbxSelectedChargeTime);
             this.Controls.Add(this.lblTotalCharge);
             this.Controls.Add(this.txtChargeTotal);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnCalc);
-            this.Controls.Add(this.txtKilowatthours);
-            this.Controls.Add(this.lblkWh);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmCityPower";
             this.Text = "City Power";
@@ -297,10 +372,16 @@
         private System.Windows.Forms.Label lblCompanyName;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox gbxCustType;
-        private System.Windows.Forms.TextBox txtBxOffPeak;
-        private System.Windows.Forms.TextBox txtBxPeak;
+        private System.Windows.Forms.TextBox txtOffPeak;
+        private System.Windows.Forms.TextBox txtPeak;
         private System.Windows.Forms.CheckBox ckBxOffPeak;
         private System.Windows.Forms.CheckBox ckBxPeakHours;
+        private System.Windows.Forms.Label lblCustName;
+        private System.Windows.Forms.Label lblAcctNum;
+        private System.Windows.Forms.TextBox txtCustName;
+        private System.Windows.Forms.TextBox txtCustAcctNo;
+        private System.Windows.Forms.Label lblTotal;
+        private System.Windows.Forms.TextBox txtIndustrialSubTotal;
     }
 }
 
