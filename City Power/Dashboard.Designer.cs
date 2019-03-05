@@ -66,7 +66,7 @@
             this.radResidential.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radResidential.Name = "radResidential";
             this.radResidential.Size = new System.Drawing.Size(113, 24);
-            this.radResidential.TabIndex = 1;
+            this.radResidential.TabIndex = 4;
             this.radResidential.TabStop = true;
             this.radResidential.Text = "&Residential";
             this.radResidential.UseVisualStyleBackColor = true;
@@ -79,7 +79,7 @@
             this.radCommercial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radCommercial.Name = "radCommercial";
             this.radCommercial.Size = new System.Drawing.Size(117, 24);
-            this.radCommercial.TabIndex = 2;
+            this.radCommercial.TabIndex = 5;
             this.radCommercial.TabStop = true;
             this.radCommercial.Text = "Co&mmercial";
             this.radCommercial.UseVisualStyleBackColor = true;
@@ -92,7 +92,7 @@
             this.radIndustrial.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.radIndustrial.Name = "radIndustrial";
             this.radIndustrial.Size = new System.Drawing.Size(99, 24);
-            this.radIndustrial.TabIndex = 3;
+            this.radIndustrial.TabIndex = 6;
             this.radIndustrial.TabStop = true;
             this.radIndustrial.Text = "&Industrial";
             this.radIndustrial.UseVisualStyleBackColor = true;
@@ -101,7 +101,7 @@
             // lblkWh
             // 
             this.lblkWh.AutoSize = true;
-            this.lblkWh.Location = new System.Drawing.Point(396, 225);
+            this.lblkWh.Location = new System.Drawing.Point(396, 240);
             this.lblkWh.Name = "lblkWh";
             this.lblkWh.Size = new System.Drawing.Size(90, 20);
             this.lblkWh.TabIndex = 21;
@@ -109,21 +109,22 @@
             // 
             // txtKilowatthours
             // 
-            this.txtKilowatthours.Location = new System.Drawing.Point(353, 195);
+            this.txtKilowatthours.Location = new System.Drawing.Point(353, 210);
             this.txtKilowatthours.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtKilowatthours.Name = "txtKilowatthours";
             this.txtKilowatthours.Size = new System.Drawing.Size(133, 26);
-            this.txtKilowatthours.TabIndex = 4;
+            this.txtKilowatthours.TabIndex = 10;
             this.txtKilowatthours.Text = "0";
             this.txtKilowatthours.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtKilowatthours.TextChanged += new System.EventHandler(this.txtIndustrialSubTotal_TextChanged);
             // 
             // btnCalc
             // 
-            this.btnCalc.Location = new System.Drawing.Point(353, 258);
+            this.btnCalc.Location = new System.Drawing.Point(353, 273);
             this.btnCalc.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCalc.Name = "btnCalc";
             this.btnCalc.Size = new System.Drawing.Size(150, 54);
-            this.btnCalc.TabIndex = 6;
+            this.btnCalc.TabIndex = 11;
             this.btnCalc.Text = "&Calculate";
             this.btnCalc.UseVisualStyleBackColor = true;
             this.btnCalc.Click += new System.EventHandler(this.btnCalc_Click);
@@ -134,7 +135,7 @@
             this.btnClear.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(150, 54);
-            this.btnClear.TabIndex = 7;
+            this.btnClear.TabIndex = 12;
             this.btnClear.Text = "C&lear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -145,7 +146,7 @@
             this.btnExit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(150, 54);
-            this.btnExit.TabIndex = 8;
+            this.btnExit.TabIndex = 13;
             this.btnExit.Text = "E&xit";
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -164,6 +165,7 @@
             this.txtChargeTotal.Size = new System.Drawing.Size(308, 76);
             this.txtChargeTotal.TabIndex = 25;
             this.txtChargeTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            
             // 
             // lblTotalCharge
             // 
@@ -182,7 +184,7 @@
             this.gbxSelectedChargeTime.Controls.Add(this.ckBxPeakHours);
             this.gbxSelectedChargeTime.Controls.Add(this.txtOffPeak);
             this.gbxSelectedChargeTime.Controls.Add(this.txtPeak);
-            this.gbxSelectedChargeTime.Location = new System.Drawing.Point(14, 53);
+            this.gbxSelectedChargeTime.Location = new System.Drawing.Point(14, 68);
             this.gbxSelectedChargeTime.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gbxSelectedChargeTime.Name = "gbxSelectedChargeTime";
             this.gbxSelectedChargeTime.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -218,7 +220,7 @@
             this.ckBxOffPeak.Location = new System.Drawing.Point(11, 75);
             this.ckBxOffPeak.Name = "ckBxOffPeak";
             this.ckBxOffPeak.Size = new System.Drawing.Size(145, 24);
-            this.ckBxOffPeak.TabIndex = 16;
+            this.ckBxOffPeak.TabIndex = 8;
             this.ckBxOffPeak.Text = "Off-Peak Hours";
             this.ckBxOffPeak.UseVisualStyleBackColor = true;
             this.ckBxOffPeak.CheckedChanged += new System.EventHandler(this.ckBxOffPeak_CheckedChanged);
@@ -229,7 +231,7 @@
             this.ckBxPeakHours.Location = new System.Drawing.Point(12, 29);
             this.ckBxPeakHours.Name = "ckBxPeakHours";
             this.ckBxPeakHours.Size = new System.Drawing.Size(118, 24);
-            this.ckBxPeakHours.TabIndex = 15;
+            this.ckBxPeakHours.TabIndex = 6;
             this.ckBxPeakHours.Text = "Peak Hours";
             this.ckBxPeakHours.UseVisualStyleBackColor = true;
             this.ckBxPeakHours.CheckedChanged += new System.EventHandler(this.ckBxPeakHours_CheckedChanged);
@@ -240,10 +242,11 @@
             this.txtOffPeak.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtOffPeak.Name = "txtOffPeak";
             this.txtOffPeak.Size = new System.Drawing.Size(152, 26);
-            this.txtOffPeak.TabIndex = 14;
+            this.txtOffPeak.TabIndex = 9;
             this.txtOffPeak.Text = "0";
             this.txtOffPeak.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtOffPeak.Visible = false;
+            this.txtOffPeak.TextChanged += new System.EventHandler(this.txtOffPeak_TextChanged);
             // 
             // txtPeak
             // 
@@ -251,11 +254,11 @@
             this.txtPeak.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPeak.Name = "txtPeak";
             this.txtPeak.Size = new System.Drawing.Size(152, 26);
-            this.txtPeak.TabIndex = 13;
+            this.txtPeak.TabIndex = 7;
             this.txtPeak.Text = "0";
             this.txtPeak.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPeak.Visible = false;
-            this.txtPeak.Enter += new System.EventHandler(this.txtIndustrialSubTotal_TextChanged);
+            this.txtPeak.TextChanged += new System.EventHandler(this.txtPeak_TextChanged);
             // 
             // lblCompanyName
             // 
@@ -290,15 +293,15 @@
             this.gbxCustType.Controls.Add(this.btnCalc);
             this.gbxCustType.Location = new System.Drawing.Point(30, 106);
             this.gbxCustType.Name = "gbxCustType";
-            this.gbxCustType.Size = new System.Drawing.Size(516, 319);
-            this.gbxCustType.TabIndex = 26;
+            this.gbxCustType.Size = new System.Drawing.Size(516, 334);
+            this.gbxCustType.TabIndex = 3;
             this.gbxCustType.TabStop = false;
             this.gbxCustType.Text = "-";
             // 
             // lblCustName
             // 
             this.lblCustName.AutoSize = true;
-            this.lblCustName.Location = new System.Drawing.Point(26, 28);
+            this.lblCustName.Location = new System.Drawing.Point(26, 74);
             this.lblCustName.Name = "lblCustName";
             this.lblCustName.Size = new System.Drawing.Size(124, 20);
             this.lblCustName.TabIndex = 27;
@@ -307,7 +310,7 @@
             // lblAcctNum
             // 
             this.lblAcctNum.AutoSize = true;
-            this.lblAcctNum.Location = new System.Drawing.Point(26, 77);
+            this.lblAcctNum.Location = new System.Drawing.Point(26, 28);
             this.lblAcctNum.Name = "lblAcctNum";
             this.lblAcctNum.Size = new System.Drawing.Size(128, 20);
             this.lblAcctNum.TabIndex = 28;
@@ -315,17 +318,17 @@
             // 
             // txtCustName
             // 
-            this.txtCustName.Location = new System.Drawing.Point(176, 25);
+            this.txtCustName.Location = new System.Drawing.Point(176, 68);
             this.txtCustName.Name = "txtCustName";
             this.txtCustName.Size = new System.Drawing.Size(274, 26);
-            this.txtCustName.TabIndex = 29;
+            this.txtCustName.TabIndex = 2;
             // 
             // txtCustAcctNo
             // 
-            this.txtCustAcctNo.Location = new System.Drawing.Point(176, 74);
+            this.txtCustAcctNo.Location = new System.Drawing.Point(176, 22);
             this.txtCustAcctNo.Name = "txtCustAcctNo";
             this.txtCustAcctNo.Size = new System.Drawing.Size(274, 26);
-            this.txtCustAcctNo.TabIndex = 30;
+            this.txtCustAcctNo.TabIndex = 1;
             // 
             // frmCityPower
             // 
@@ -366,7 +369,6 @@
         private System.Windows.Forms.Button btnCalc;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.TextBox txtChargeTotal;
         private System.Windows.Forms.Label lblTotalCharge;
         private System.Windows.Forms.GroupBox gbxSelectedChargeTime;
         private System.Windows.Forms.Label lblCompanyName;
@@ -382,6 +384,7 @@
         private System.Windows.Forms.TextBox txtCustAcctNo;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.TextBox txtIndustrialSubTotal;
+        public System.Windows.Forms.TextBox txtChargeTotal;
     }
 }
 

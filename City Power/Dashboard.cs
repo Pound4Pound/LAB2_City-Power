@@ -14,7 +14,7 @@ using System.Windows.Forms;
 ///     
 ///     Author: Colin Lee-Chee
 ///     Class: CPRG 200 - Rapid Application Development
-///     Lab #: 1
+///     Lab #: 2
 ///     
 ///     The start of an account page that calculates a customer's bill according to their account type
 /// </summary>
@@ -23,23 +23,10 @@ namespace City_Power
 {
     public partial class frmCityPower : Form
     {
-        //Declaration list for constant values used throuhgout the program. 
-        //Data is centralized for ease of maintenance.
-        const decimal ResidentialFlatRate = 6.00m;
-        const decimal ResidentialHourlyRate = 0.052m;
-        const decimal CommercialFlatRate = 60.00m;
-        const decimal CommercialHourlyRate = 0.045m;
-        const decimal IndustrialPeakHoursFlatRate = 76.00m;
-        const decimal IndustrialPeakHoursHourlyRate = 0.065m;
-        const decimal IndustrialOffPeakHoursFlatRate = 40.00m;
-        const decimal IndustrialOffPeakHoursHourlyRate = 0.028m;
-
-        
-
         public frmCityPower()
         {
             InitializeComponent();
-            
+
         }
 
         //button exits program and closes form
@@ -52,74 +39,61 @@ namespace City_Power
 
         private void btnCalc_Click(object sender, EventArgs e)
         {
-          //Event handler for calculation button
-
-            decimal flatRate = 0;
-            decimal hourlyRate = 0;
-            string customerType = "r";
-
-         //Data validation call
 
             try
             {
-                if (IsPresent(txtKilowatthours, "kWh")  && // check to see that a value was entered into the form
+                if (IsPresent(txtKilowatthours, "kWh") && // check to see that a value was entered into the form
                     IsDecimal(txtKilowatthours, "kWh") &&  // check to see that a number is entered into the field
                     IsNotNeg(txtKilowatthours, "kWh"))     // check to see if the number is zero or positive 
                 {
 
-                    if (radResidential.Checked)
-                    {//set residential rate off of radio button
-                        customerType = "r";
-                    }
-
-                    if (radCommercial.Checked)
-                    {//set commercial rate off of radio button
-                        customerType = "c";
-
-                    }
-
-                    //set industrial rate off of radio button
-                    if (radIndustrial.Checked)
+                    //Event handler for calculation button
+                    //new customer
+                    Customer cust = new Customer
                     {
-                        customerType = "i";
+                        AccountNumber = Convert.ToInt32(txtCustAcctNo.Text),
+                        CustomerName = txtCustName.ToString(),
+                        ChargeAmount = Convert.ToDecimal(txtKilowatthours.Text)
+                    //sets the amount of kWh used by the customer in the customer object
+
+                    };
+
+                    
+                    if (radResidential.Checked)
+                    {//set the cutomer type to residential to allow 
+                     //instantiated customer to calculate charge at correct rate.
+                     
+                        cust.CustomerType = 'r';
                     }
-
-
-
-                    switch (customerType)
-                    {//calculate residential rate
-                        case "r":
-                            decimal total;
-                            CalcResidential(out flatRate, out hourlyRate);
-
-                            break;
-
-                        //calculate commercial rate
-                        case "c":
-                            CalcCommercial(out flatRate, out hourlyRate, out total);
-
-                            break;
-                        case "i":
-                       // calculater industrial rate
-                            if (ckBxPeakHours.Checked) // check what type of charge is made depending on time of day
-                                 //Calculate Industrial rate of charge during off peak hours.
-                                CalcOffPeak(out flatRate, out hourlyRate, out total);
-
-                            //Calculate Industrial rate of charge during peak hours.
-                            if (ckBxOffPeak.Checked)
-                                CalcPeak(out flatRate, out hourlyRate, out total);
-
-                            break;
-
+    
+                    if (radCommercial.Checked)
+                    {//set the cutomer type to commercial to allow 
+                     //instantiated customer to calculate charge at correct rate.
+                        cust.CustomerType = 'c';
                     }
+                    
+                    if (radIndustrial.Checked)
+                    {//set the cutomer type to industrial to allow 
+                     //instantiated customer to calculate charge at correct rate.
+                        cust.CustomerType = 'i';
+                    }
+                  
+                    txtChargeTotal.Text = cust.CalculateCharge(cust.CustomerType, cust.ChargeAmount).ToString("c");
+
                 }
             }
+          
 
             catch (Exception ex)
             {//Exception catch for any unforseen errors.
                 MessageBox.Show(ex.Message + "\n\n" + ex.GetType().ToString() + "\n" + ex.StackTrace, "Exception");
             }
+
+          
+
         }
+
+       
 
         public bool IsPresent(TextBox textBox, string name)
         {//Check to see if the text field is empty.
@@ -163,69 +137,28 @@ namespace City_Power
 
         }
 
-        private void CalcPeak(out decimal flatRate, out decimal hourlyRate, out decimal total)
-        {//Calculation of industrial rate of charge at peak rates
-            
-            flatRate = IndustrialPeakHoursFlatRate;
-            hourlyRate = IndustrialPeakHoursHourlyRate;
 
-            if (Convert.ToDecimal(txtKilowatthours.Text) <= 1000)  //check to see if the client used more than the minimum alloted rate 
-            {//base rate of calculation
-                total = flatRate;
-                txtChargeTotal.Text = total.ToString("c");
-            }
-            else
-            //calculation of energy over the base charge of power.
-                total = flatRate + (Convert.ToDecimal(txtKilowatthours.Text) - 1000) * hourlyRate;
-           
 
-            
-            txtChargeTotal.Text = total.ToString("c");
+        //private void CalcOffPeak(out decimal flatRate, out decimal hourlyRate, out decimal total)
+        //{//Calculation of industrial rate of charge at off peak rates
+        //    flatRate = IndustrialOffPeakHoursFlatRate;
+        //    hourlyRate = IndustrialOffPeakHoursHourlyRate;
 
-        }
+        //    if (Convert.ToDecimal(txtKilowatthours.Text) <= 1000)
+        //        total = flatRate;//base rate of calculation
+        //    else
+        //        total = flatRate + (Convert.ToDecimal(txtKilowatthours.Text) - 1000) * hourlyRate; //calculation of energy over the base charge of power.
 
-        private void CalcOffPeak(out decimal flatRate, out decimal hourlyRate, out decimal total)
-        {//Calculation of industrial rate of charge at off peak rates
-            flatRate = IndustrialOffPeakHoursFlatRate;
-            hourlyRate = IndustrialOffPeakHoursHourlyRate;
+        //    txtChargeTotal.Text = total.ToString("c");
+        //}
 
-            if (Convert.ToDecimal(txtKilowatthours.Text) <= 1000)
-                total = flatRate;//base rate of calculation
-            else
-                total = flatRate + (Convert.ToDecimal(txtKilowatthours.Text) - 1000) * hourlyRate; //calculation of energy over the base charge of power.
 
-            txtChargeTotal.Text = total.ToString("c");
-        }
-
-        private void CalcCommercial(out decimal flatRate, out decimal hourlyRate, out decimal total)
-        {
-            flatRate = CommercialFlatRate;
-            hourlyRate = CommercialHourlyRate;
-
-            //checks amount entered into kWh 
-            if (Convert.ToDecimal(txtKilowatthours.Text) <= 1000)
-            {//charges flat rate if less than the minimum number of kWh
-                total = flatRate;
-                txtChargeTotal.Text = total.ToString("c");
-            }
-            else
-            {//charge of bill is flat rate plus excess amount 
-                total = flatRate + (Convert.ToDecimal(txtKilowatthours.Text) - 1000) * hourlyRate;
-                txtChargeTotal.Text = total.ToString("c");
-            }
-        }
-
-        private void CalcResidential(out decimal flatRate, out decimal hourlyRate)
-        {//Calculation of residential charges.
-            flatRate = ResidentialFlatRate;
-            hourlyRate = ResidentialHourlyRate;
-            decimal total = flatRate + Convert.ToDecimal(txtKilowatthours.Text) * hourlyRate;
-
-            txtChargeTotal.Text = total.ToString("c");
-        }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+
+            txtPeak.Text = "0";
+            txtOffPeak.Text = "0";
             txtKilowatthours.Clear();
             txtKilowatthours.Focus();
             txtChargeTotal.Clear();
@@ -264,6 +197,7 @@ namespace City_Power
                 txtOffPeak.Visible = true;
                 else
                 txtOffPeak.Visible = false;
+             //   txtOffPeak.Clear();
             
                 
             
@@ -271,12 +205,65 @@ namespace City_Power
 
         private void txtIndustrialSubTotal_TextChanged(object sender, EventArgs e)
         {
-            int subTotal;
-    
-            subTotal = Convert.ToInt32(txtPeak.Text) + Convert.ToInt32(txtOffPeak);
 
-            txtIndustrialSubTotal.Text = Convert.ToString(subTotal);
+            if (radIndustrial.Checked)
+            {
 
+                int subTotal;
+
+                subTotal = Convert.ToInt32(txtPeak.Text);
+                subTotal += Convert.ToInt32(txtOffPeak.Text);
+
+                txtIndustrialSubTotal.Text = Convert.ToString(subTotal);
+                txtKilowatthours.Text = txtIndustrialSubTotal.Text;
+            }
         }
+
+        private void txtPeak_TextChanged(object sender, EventArgs e)
+        {
+            int subTotal;
+            try
+            {
+                if (IsPresent(txtKilowatthours, "kWh") && // check to see that a value was entered into the form
+                    IsDecimal(txtKilowatthours, "kWh") &&  // check to see that a number is entered into the field
+                    IsNotNeg(txtKilowatthours, "kWh"))     // check to see if the number is zero or positive 
+                {
+                    subTotal = Convert.ToInt32(txtPeak.Text);
+                    subTotal += Convert.ToInt32(txtOffPeak.Text);
+
+                    txtIndustrialSubTotal.Text = Convert.ToString(subTotal);
+                }
+            }
+
+            catch (Exception ex)
+            {//Exception catch for any unforseen errors.
+                MessageBox.Show(ex.Message + "\n\n" + ex.GetType().ToString() + "\n" + ex.StackTrace, "Exception");
+            }
+        }
+
+        private void txtOffPeak_TextChanged(object sender, EventArgs e)
+        {
+            int subTotal;
+
+
+            try
+            {
+                if (IsPresent(txtKilowatthours, "kWh") && // check to see that a value was entered into the form
+                    IsDecimal(txtKilowatthours, "kWh") &&  // check to see that a number is entered into the field
+                    IsNotNeg(txtKilowatthours, "kWh"))     // check to see if the number is zero or positive 
+                {
+                    subTotal = Convert.ToInt32(txtPeak.Text);
+                    subTotal += Convert.ToInt32(txtOffPeak.Text);
+
+                    txtIndustrialSubTotal.Text = Convert.ToString(subTotal);
+                }
+            }
+            catch (Exception ex)
+            {//Exception catch for any unforseen errors.
+                MessageBox.Show(ex.Message + "\n\n" + ex.GetType().ToString() + "\n" + ex.StackTrace, "Exception");
+            }
+        }
+
+
     }
 }
